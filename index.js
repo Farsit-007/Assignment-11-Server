@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 
-
 const crosOption = {
   origin: ['http://localhost:5173',
     'https://assignment-11-5a8b0.web.app',
@@ -35,7 +34,6 @@ const verifyToken = (req, res, next) => {
     })
   }
 }
-
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.xs1g9z6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
@@ -87,7 +85,7 @@ async function run() {
         .send({ success: true })
     })
     
-
+ //Filter and Fetch
     app.get('/featured-room', async (req, res) => {
 
       const { minPrice, maxPrice } = req.query;
