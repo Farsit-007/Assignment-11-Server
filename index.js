@@ -147,13 +147,11 @@ async function run() {
       const id = req.params.id;
       const availability = req.body;
       const query = { _id: new ObjectId(id) }
-      console.log(query);
       const updatedoc = {
         $set: { ...availability },
       }
       const result = await RoomsCollection.updateOne(query, updatedoc)
       res.send(result)
-      console.log(result);
     })
 
 
