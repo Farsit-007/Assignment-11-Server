@@ -154,7 +154,6 @@ async function run() {
       res.send(result)
     })
 
-
     //Fetching Booking by User 
     app.get('/booking/:email', verifyToken, async (req, res) => {
       const tokenemail = req.user?.email;
@@ -166,8 +165,6 @@ async function run() {
       const result = await BookingCollection.find(query).toArray();
       res.send(result)
     })
-
-
 
     //Update Booking Date
     app.patch('/updatebooking/:id', async (req, res) => {
