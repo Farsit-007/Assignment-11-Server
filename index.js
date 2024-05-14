@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser')
 
 const crosOption = {
   origin: ['http://localhost:5173',
+    'http://localhost:5174',
     'https://assignment-11-5a8b0.web.app',
     'https://assignment-11-5a8b0.firebaseapp.com'],
   credentials: true,
@@ -62,7 +63,7 @@ async function run() {
     app.post('/jwt', async (req, res) => {
       const email = req.body
       const token = jwt.sign(email, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: '365d',
+        expiresIn: '7d',
       })
       res
         .cookie('token', token, {
@@ -84,8 +85,8 @@ async function run() {
         })
         .send({ success: true })
     })
-    
- //Filter and Fetch
+
+    //Filter and Fetch
     app.get('/featured-room', async (req, res) => {
 
       const { minPrice, maxPrice } = req.query;
