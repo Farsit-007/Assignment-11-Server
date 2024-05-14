@@ -103,18 +103,15 @@ async function run() {
       else if (maxPrice) {
         filter.price_per_night = { $lte: parseFloat(maxPrice) };
       }
-
       const result = await RoomsCollection.find(filter).toArray();
       res.send(result);
     });
-
 
     //Single Room Details 
     app.get('/featured-room/:id', async (req, res) => {
       const id = req.params.id
       const query = { _id: new ObjectId(id) }
       const result = await RoomsCollection.findOne(query)
-      console.log(result);
       res.send(result);
     })
 
