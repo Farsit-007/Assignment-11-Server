@@ -216,7 +216,6 @@ async function run() {
       }
       const ReviewQuery = { _id: new ObjectId(room.roomId) }
       const updateReviewCount = await RoomsCollection.updateOne(ReviewQuery, updateDoc)
-      console.log(updateReviewCount)
       res.send(result)
     })
 
