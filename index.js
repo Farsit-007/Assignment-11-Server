@@ -75,13 +75,14 @@ async function run() {
     })
 
     // Clear token on logout
-    app.get('/logout', (req, res) => {
+    app.post('/logout', (req, res) => {
+      const user = req.body;
+      console.log('LogOut',user);
       res
         .clearCookie('token', {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
           maxAge: 0,
+          sameSite : 'none',
+          secure : true
         })
         .send({ success: true })
     })
