@@ -13,6 +13,7 @@ const crosOption = {
     'https://assignment-11-5a8b0.web.app',
     'https://assignment-11-5a8b0.firebaseapp.com'],
   credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   optionSuccessStatus: 200,
 }
 app.use(cors(crosOption))
